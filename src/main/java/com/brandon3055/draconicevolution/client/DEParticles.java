@@ -36,7 +36,7 @@ public class DEParticles {
 
     public static void init(IEventBus modBus) {
         PARTICLE_TYPES.register(modBus);
-        modBus.addListener(DEParticles::registerFactories);
+       // modBus.addListener(DEParticles::registerFactories);
     }
 
     //@formatter:off
