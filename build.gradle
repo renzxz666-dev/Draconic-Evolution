@@ -69,7 +69,7 @@ repositories {
 dependencies {
     implementation "net.neoforged:neoforge:${neo_version}"
 
-    implementation "com.brandon3055.brandonscore:BrandonsCore:${mc_version}-${bcore_version}"
+    implementation files('libs/BrandonsCore-1.21.1-3.2.1.9999.jar')
     implementation "io.codechicken:CodeChickenLib:${mc_version}-${ccl_version}"
     implementation "io.codechicken:EnderStorage:${mc_version}-${ender_storage_version}"
 //    compileOnly fg.deobf("com.blamejared.crafttweaker:CraftTweaker-forge-${mc_version}:${crt_version}")
