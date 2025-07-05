@@ -21,7 +21,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
-
+import net.neoforged.fml.loading.FMLEnvironment;
 import java.util.function.Function;
 
 import static com.brandon3055.draconicevolution.DraconicEvolution.MODID;
@@ -36,7 +36,10 @@ public class DEParticles {
 
     public static void init(IEventBus modBus) {
         PARTICLE_TYPES.register(modBus);
-       // modBus.addListener(DEParticles::registerFactories);
+ //      // modBus.addListener(DEParticles::registerFactories);
+       if (FMLEnvironment.dist.isClient()) {
+            modBus.addListener(DEParticles::registerFactories);
+        }
     }
 
     //@formatter:off
