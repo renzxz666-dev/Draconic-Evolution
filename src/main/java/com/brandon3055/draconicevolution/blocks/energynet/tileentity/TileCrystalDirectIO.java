@@ -50,7 +50,7 @@ public class TileCrystalDirectIO extends TileCrystalBase   {
     }
 
     public static void register(RegisterCapabilitiesEvent event) {
-        capability(event, DEContent.TILE_IO_CRYSTAL, CapabilityOP.BLOCK);
+        energyCapability(event, DEContent.TILE_IO_CRYSTAL);
     }
 
     //region Update Energy IO
@@ -109,7 +109,7 @@ public class TileCrystalDirectIO extends TileCrystalBase   {
     public void addDisplayData(List<Component> displayList) {
         super.addDisplayData(displayList);
         ChatFormatting colour = outputMode.get() ? ChatFormatting.GOLD : ChatFormatting.DARK_AQUA;
-        displayList.add(Component.translatable("gui.draconicevolution.energy_net.io_mode").append(" ").append(Component.translatable("gui.draconicevolution.energy_net.io_output_" + !outputMode.get()).withStyle(colour)));
+        displayList.add(Component.translatable("gui.draconicevolution.energy_net.io_mode").append(" ").append(Component.translatable("gui.draconicevolution.energy_net.io_output_" + outputMode.get()).withStyle(colour)));
     }
 
     //endregion

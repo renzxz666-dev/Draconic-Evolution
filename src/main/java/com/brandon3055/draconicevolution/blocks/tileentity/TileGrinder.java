@@ -114,7 +114,7 @@ public class TileGrinder extends TileBCore implements IRSSwitchable, MenuProvide
     }
 
     public static void register(RegisterCapabilitiesEvent event) {
-        capability(event, DEContent.TILE_GRINDER, CapabilityOP.BLOCK);
+        energyCapability(event, DEContent.TILE_GRINDER);
         capability(event, DEContent.TILE_GRINDER, Capabilities.ItemHandler.BLOCK);
     }
 
@@ -193,7 +193,7 @@ public class TileGrinder extends TileBCore implements IRSSwitchable, MenuProvide
             Direction facing = state.getValue(Grinder.FACING);
             int aoe = this.aoe.get();
             BlockPos pos1 = worldPosition.offset(-(aoe - 1), -(aoe - 1), -(aoe - 1));
-            BlockPos pos2 = worldPosition.offset(aoe, aoe, aoe);
+            BlockPos pos2 = worldPosition.offset(aoe - 1, aoe - 1, aoe - 1);
             pos1 = pos1.offset(facing.getStepX() * aoe, 0, facing.getStepZ() * aoe);
             pos2 = pos2.offset(facing.getStepX() * aoe, 0, facing.getStepZ() * aoe);
             killZone = AABB.encapsulatingFullBlocks(pos1, pos2);
